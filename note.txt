@@ -20,3 +20,8 @@ detached mode docker run -p 3000:3000 -d 63101b999e4f
 to attach a terminal to a container: docker attach containerName
 docker logs containerName// to see past logs, docker logs -f containerName// -f to keep on listening
 attached mode docker start -a containerName
+
+interactive mode:
+sudo docker run -it c8ab3d6c0183 //interactive mode, I tried without t and it worked
+sudo docker run -it c8ab3d6c0183
+sudo docker start -ai containerName
