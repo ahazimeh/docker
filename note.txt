@@ -25,3 +25,14 @@ interactive mode:
 sudo docker run -it c8ab3d6c0183 //interactive mode, I tried without t and it worked
 sudo docker run -it c8ab3d6c0183
 sudo docker start -ai containerName
+
+remove docker containers and images:
+docker rm containerName containerName2
+remove all docker containers
+    sudo docker stop $(sudo docker ps -a -q)
+    sudo docker rm $(sudo docker ps -a -q)
+    or docker container prune
+
+view images: docker images
+remove images: docker rmi feb5d9fea6a5
+remove all images: docker image prune
