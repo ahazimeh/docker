@@ -45,3 +45,10 @@ docker image inspect imageId
 copy from and into container:
 docker cp filePath containerName:/filePath
 docker cp containerName:/filePath filePath
+
+customize tag image name and container name
+docker run -p 3000:80 -d --rm --name goalsapp imageId
+docker build -t goals:latest .
+
+remove all images including tagged images: docker image prune -a
+docker run -p 3000:80 -d --rm --name goalsapp name:tag //name:tag rather than imageId
