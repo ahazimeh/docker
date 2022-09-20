@@ -15,3 +15,8 @@ to pull and run docker image
 docker run node
 docker run -it node (it to expose an interactive session from inside the container to our hosting machine)
 sudo docker start containerName// to start an existing container
+
+detached mode docker run -p 3000:3000 -d 63101b999e4f
+to attach a terminal to a container: docker attach containerName
+docker logs containerName// to see past logs, docker logs -f containerName// -f to keep on listening
+attached mode docker start -a containerName
