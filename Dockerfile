@@ -18,6 +18,7 @@ RUN npm install
 
 #when we listen to a specific port, the container doesn't expose that port to our local machine
 #so we won't be able to listen on that port just because something is listening inside of a container
+#EXPOSE is just a best practice to make things clear but you can remove this line
 EXPOSE 80
 
 #RUN node server.js
