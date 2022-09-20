@@ -1,0 +1,13 @@
+FROM node
+
+WORKDIR /app
+
+COPY package.json /app //by only copying package.json before npm install then now if we change anything beside package.json then npm install won't be invalidated
+
+RUN npm install
+
+COPY . /app
+
+EXPOSE 80
+
+CMD [ "node", "server.js" ]
