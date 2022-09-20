@@ -38,3 +38,10 @@ remove images: docker rmi feb5d9fea6a5
 remove all images: docker image prune
 
 docker run -p 3000:80 -d --rm imageId //--rm means that this container will be automatically removed once we stop it
+
+to know more about the image
+docker image inspect imageId
+
+copy from and into container:
+docker cp filePath containerName:/filePath
+docker cp containerName:/filePath filePath
