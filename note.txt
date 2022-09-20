@@ -36,3 +36,5 @@ remove all docker containers
 view images: docker images
 remove images: docker rmi feb5d9fea6a5
 remove all images: docker image prune
+
+docker run -p 3000:80 -d --rm imageId //--rm means that this container will be automatically removed once we stop it
