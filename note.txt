@@ -5,7 +5,7 @@ sudo docker build .
 docker run -p 3000:3000 63101b999e4f
 
 docker ps
-docker stop dockerName
+docker stop containerName
 
 image vs containers:
 image is the template blueprint for containers that contains code, required tools and runtime
@@ -14,3 +14,4 @@ container is the running unit of software
 to pull and run docker image
 docker run node
 docker run -it node (it to expose an interactive session from inside the container to our hosting machine)
+sudo docker start containerName// to start an existing container
