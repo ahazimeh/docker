@@ -4,3 +4,10 @@ named volume
 sudo docker run -p 3000:80 -d --name feedback-app -v feedback:/app/feedback --rm feedback-node
 
 remove unnamed volumes: docker volume rm VOL_NAME or docker volume prune
+
+bind mounts
+sudo docker run -p 3000:80 -d --name feedback-app -v feedback:/app/feedback -v "/home/ali/Desktop/docker/data-volume:/app" -v /app/node_modules --rm feedback-node
+Just a quick note: If you don't always want to copy and use the full path, you can use these shortcuts:
+macOS / Linux: -v $(pwd):/app
+Windows: -v "%cd%":/app
+
