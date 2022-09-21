@@ -22,3 +22,8 @@ ENV PORT 80 // process.env.PORT
 EXPOSE $PORT
 you can also change it when running the docker file --env PORT=8000 or e PORT=8000
 another option is to have a file called .env(for example) and use --env-file ./.env
+
+ARG DEFAULT_PORT=80
+ENV PORT $DEFAULT_PORT
+when building an image you can overwrite an arg by setting:
+    --build-arg DEFAULT_PORT=8000
