@@ -52,3 +52,11 @@ docker build -t goals:latest .
 
 remove all images including tagged images: docker image prune -a
 docker run -p 3000:80 -d --rm --name goalsapp name:tag //name:tag rather than imageId
+
+rename images: docker tag oldName newName
+push images to dockerhub:
+make an image with a name similar to the name chosen for the repository on docker hub
+login and then push
+
+docker run will check it locally, if it doesn't exist then it will try to get it from repository
+docker pull will always check for latest update
