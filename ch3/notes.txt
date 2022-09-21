@@ -12,4 +12,4 @@ macOS / Linux: -v $(pwd):/app
 Windows: -v "%cd%":/app
 
 sudo docker run -p 3000:80 -d --name feedback-app -v feedback:/app/feedback -v "/home/ali/Desktop/docker/data-volume:/app:ro" -v /app/temp -v /app/node_modules --rm feedback-node
-:ro (read only volumn) wil insure that docker will not be able to change our file system
+:ro (read only volume) wil insure that docker will not be able to change our file system
