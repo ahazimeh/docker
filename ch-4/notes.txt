@@ -1,0 +1,19 @@
+localhost should be replaced by host.docker.internal
+but it didn't work for linux
+for linux I only added --network=host when running the container
+
+docker run --name mongodb mongo
+docker container inspect mongodb
+    copy the ip address
+    'mongodb://ip address:27017/swfavorites'
+
+another soln:
+docker network create favorites-net
+    docker network ls
+docker run --rm -d --name mongodb --network favorites-net -d mongo
+docker run --name favorite --rm -p 3000:3000 --network favorites-net favorites-node
+'mongodb://mongodb:27017/swfavorites'
+
+note for mongodb container we didn't provide the -p option because it is required only if
+we plan on connecting to something in to that container from our local host machine
+or from outside the container network, in this case we won't do that
