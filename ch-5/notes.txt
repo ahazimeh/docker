@@ -21,3 +21,11 @@ MONGO_INITDB_ROOT_USERNAME
 MONGO_INITDB_ROOT_PASSWORD
 docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=max -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
 'mongodb://max:secret@mongodb:27017/course-goals?authSource=admin'
+
+
+bind mount:
+maximillian had it -v logs:/app/logs but it only worked this way or with unnamed volume
+docker run --name goals-backend -v /home/ali/Desktop/docker/multi-container/backend:/app -v /app/node_modules -v logs:/logs --rm --network goals-net -d -p 8080:8080 goals-node
+
+with env
+docker run --name goals-backend -e MONGODB_USERNAME=max -v /home/ali/Desktop/docker/multi-container/backend:/app -v /app/node_modules -v logs:/logs --rm --network goals-net -d -p 8080:8080 goals-node
