@@ -1,2 +1,23 @@
 before using docker on node use -p flag
 docker run --name mongodb --rm -d -p 27017:27017 mongo
+docker run --name goals-backend --rm --network host -p 8080:8080 -d goals-node
+we need to run the react app with interactive mode
+
+docker network create goals-net
+
+docker build -t goals-react .
+docker run --name goals-frontend --rm -p 3000:3000 -i goals-react
+
+docker build -t goals-node .
+docker run --name goals-backend --rm --network host -p 8080:8080 -d goals-node ->
+    docker run --name goals-backend --rm --network goals-net -d -p 8080:8080 goals-node
+
+docker run --name mongodb --rm -d -p 27017:27017 mongo -> docker run --name mongodb --rm -d --network goals-net mongo
+
+volume:
+mongodb volume -v data:/data/db
+authentication:
+MONGO_INITDB_ROOT_USERNAME
+MONGO_INITDB_ROOT_PASSWORD
+docker run --name mongodb -v data:/data/db --rm -d --network goals-net -e MONGO_INITDB_ROOT_USERNAME=max -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+'mongodb://max:secret@mongodb:27017/course-goals?authSource=admin'
