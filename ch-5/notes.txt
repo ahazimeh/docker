@@ -29,3 +29,9 @@ docker run --name goals-backend -v /home/ali/Desktop/docker/multi-container/back
 
 with env
 docker run --name goals-backend -e MONGODB_USERNAME=max -v /home/ali/Desktop/docker/multi-container/backend:/app -v /app/node_modules -v logs:/logs --rm --network goals-net -d -p 8080:8080 goals-node
+
+bind mount:
+docker run -v /home/ali/Desktop/docker/multi-container/frontend:/app --name goals-frontend --rm -p 3000:3000 -it goals-react
+
+for windows user if container is not picking up the changes in code the you should access the file system of linux and not windows
+so attached an article to learn how to use the linux file system on the windows machine
