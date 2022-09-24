@@ -1,3 +1,8 @@
 docker-compose up -d //detached
 docker-compose down it deletes containers
 docker-compose down -v to remove volumes
+
+to force building the images again maybe because something changed in the code
+    docker-compose up --build
+to only build images without starting any container:
+    docker-compose build
