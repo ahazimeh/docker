@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  mongodb:
+    container_name: mongodb
+    image: 'mongo'
+    volumes:
+      - data:/data/db
+    # environment:
+    #   # MONGO_INITDB_ROOT_USERNAME: max #you don't need - when using name: and whitespace
+    #   - MONGO_INITDB_ROOT_USERNAME=max
+    #   - MONGO_INITDB_ROOT_PASSWORD=secret
+    env_file:
+      - ./env/mongo.env
+    networks:
+      - goals-net
+  # backend:
+
+  # frontend:
+
+  #for named volumes
+volumes:
+  data:
+networks:
+  goals-net:
+    name: goals-net
