@@ -1,0 +1,32 @@
+docker run -it node
+
+docker run -it -d node
+docker exec -it naughty_swirles npm init
+or
+docker run -it -d node
+
+
+
+`````
+FROM node:14-alpine
+
+WORKDIR /app
+`````
+docker build -t node-util .
+docker run -it -v /home/ali/Desktop/docker/utility-containers:/app node-util npm init
+note: if we had CMD in the Dockerfile then npm init provided above will overwrite it
+for ENTRYPOINT what we add will be appened and it won't overwrite anything
+
+add docker-compose file
+`````
+version: '3.8'
+services:
+  npm:
+    build: ./
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
+
+`````
+docker-compose run --rm npm init

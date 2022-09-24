@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  npm1:
+
+    build:
+      context: ./
+      dockerfile: Dockerfile-npm
+    # build: ./
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
