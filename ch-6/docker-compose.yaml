@@ -13,13 +13,41 @@ services:
       - ./env/mongo.env
     networks:
       - goals-net
-  # backend:
-
-  # frontend:
-
-  #for named volumes
+  backend:
+    build: ./backend
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    #   args:
+    #     some-arg: 1
+    ports:
+      - '8080:8080'
+    networks:
+      - goals-net
+    volumes:
+      - logs:/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
+  frontend:
+    build: ./frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/app
+    stdin_open: true #-i
+    tty: true #-t
+    networks:
+      - goals-net
+    depends_on:
+      - backend
+#for named volumes
 volumes:
   data:
+  logs:
 networks:
   goals-net:
     name: goals-net
