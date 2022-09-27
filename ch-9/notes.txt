@@ -1,0 +1,1 @@
+hosting providers: AWS, Azure, GoogleCloud
