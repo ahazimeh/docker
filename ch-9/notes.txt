@@ -25,3 +25,29 @@ click on your task definition
 create new revision
 NOTE: An Alternative would be to NOT create a new task revision but
 just "UPDATE SERVICE" and select "Force new Deployment"
+
+
+second project
+backend:
+docker build -t goals-node .
+docker tag goals-node ahazimeh/goals-node
+docker push ahazimeh/goals-node
+
+
+when creating a cluster with ecs:
+networking only cluster
+
+check vpc and keep the defaults, this insures that aws creates a private cloud for the cluster
+
+after that go to task definition and create a new 1
+
+then create a cluster
+under load ballancer choose application load ballancer
+this insures that incomming traffic will be handled in an efficient way
+but will also help with assigning a custom domain
+
+use ip for target group, this is required because we are using fargat for running our containers
+
+10.0.0.56
+
+for relational databases there is aws rds and for mongodb there is mongodb atlas
