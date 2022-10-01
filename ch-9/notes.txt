@@ -50,4 +50,17 @@ use ip for target group, this is required because we are using fargat for runnin
 
 10.0.0.56
 
+Volume:
+to add a volume go to task definitions, click on goals and then click the latest task definition
+create new revision
+volume, name it data and pick EFS
+-when creating a filesystem click customize
+Network access, add a new security group
+when creating security group add inbound rules, type NFS and source is the goals security group which you are using for managing your containers
+this setup will allow the containers which run in this security group to talk to anything running into this to be created security group
+after you are done go to the container you want to connect it to
+STORAGE AND LOGGING
+choose the volume name on mount points
+/data/db
+
 for relational databases there is aws rds and for mongodb there is mongodb atlas
