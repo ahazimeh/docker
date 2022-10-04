@@ -67,3 +67,7 @@ for relational databases there is aws rds and for mongodb there is mongodb atlas
 
 docker build -f ./Dockerfile.prod -t ahazimeh/goals-react .
 docker push ahazimeh/goals-react
+
+to stop the build image process after a certain stage then user
+docker build -f --target build ./Dockerfile.prod -t ahazimeh/goals-react . 
+so it won't react this part -> FROM nginx:stable-alpine
